@@ -27,4 +27,4 @@ La relación uno a muchos se implementa con Relationship() en ambos
 modelos, permitiendo navegarla en ambos sentidos:
 
 persona.oficina      # la Oficina a la que pertenece esa Persona
-oficina.personas     # la lista de Personas de esa Oficina
+oficina.personas     # la lista de Personas de esa Oficina# trabajo-practico-numero-3
