@@ -8,7 +8,7 @@ sqlite_url = "sqlite:///database.db"
 # echo=True hace que SQLModel imprima por consola cada sentencia SQL que
 # ejecuta. Es muy útil mientras estás aprendiendo, para ver qué es lo que
 # realmente se manda a la base de datos.
-engine = create_engine(sqlite_url, echo=True)
+engine = create_engine(sqlite_url, echo=False)
 
 
 def create_db_and_tables() -> None:

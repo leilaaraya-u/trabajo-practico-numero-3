@@ -29,7 +29,9 @@ def create_oficinas() -> None:
             oficina = Oficina(nombre=nombre, direccion=direccion)
             session.add(oficina)
             session.commit()
+            session.refresh(oficina)
             print(f"Creada: {oficina}")
+            
 
 
 def create_personas() -> None:
@@ -63,21 +65,26 @@ def create_personas() -> None:
             print("Las personas de ejemplo ya existían, no se crean de nuevo.")
             return
 
+        nuevas = []
+
         if not ya_existe_ana:
             persona1 = Persona(nombre="Ana Gómez", edad=29, puesto="Desarrolladora")
             # Asociación vía relationship attribute, no vía id foráneo manual.
             persona1.oficina = oficina_centro
             session.add(persona1)
-            print(f"Creada: {persona1}")
+            nuevas.append(persona1)
 
         if not ya_existe_luis:
             persona2 = Persona(nombre="Luis Pérez", edad=35, puesto="Analista")
             oficina_centro.personas.append(persona2)
             session.add(persona2)
-            print(f"Creada: {persona2}")
+            nuevas.append(persona2)
 
         session.commit()
 
+        for persona in nuevas:
+            session.refresh(persona)
+            print(f"Creada: {persona}")
 
 
 def listar_personas_de_oficina(nombre_oficina: str) -> None:
