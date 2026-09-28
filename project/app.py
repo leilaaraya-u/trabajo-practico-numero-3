@@ -227,6 +227,7 @@ def main() -> None:
     listar_personas_de_oficina("Oficina Norte")
 
     eliminar_persona("Luis Pérez")
+    eliminar_oficina("Oficina Norte")   # tiene a Ana -> el chequeo lo impide
     eliminar_oficina("Oficina Centro")  # oficina vacía -> se elimina sin problema
 
 
